@@ -9,7 +9,6 @@ class Genre(models.Model):
         max_length=200,
         help_text=_("Enter a book genre (e.g. Science Fiction, French Poetry etc.)")
     )
-
     def __str__(self):
         return self.name
 
