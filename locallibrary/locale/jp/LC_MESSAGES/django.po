@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-15 13:20+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: catalog/models.py:10
+msgid "Enter a book genre (e.g. Science Fiction, French Poetry etc.)"
+msgstr "書籍のジャンルを入力してください (例: サイエンス フィクション、フランスの詩など)"
+
+#: catalog/models.py:19
+msgid "Enter the book's natural language (e.g. English, French, Japanese etc.)"
+msgstr "書籍の自然言語を入力します (例: 英語、フランス語、日本語など)。"
+
+#: catalog/models.py:28
+msgid "Enter a brief description of the book"
+msgstr "本の簡単な説明を入力してください"
+
+#: catalog/models.py:33
+msgid "Select a genre for this book"
+msgstr "この本のジャンルを選択してください"
+
+#: catalog/models.py:53
+msgid "Unique ID for this particular book across whole library"
+msgstr "ライブラリ全体でこの特定の書籍の一意の ID"
+
+#: catalog/models.py:75
+msgid "Book availability"
+msgstr "本の可用性"
+
+#: locallibrary/settings.py:117
+msgid "English"
+msgstr "英語"
+
+#: locallibrary/settings.py:118
+msgid "Japanese"
+msgstr "日本語"
