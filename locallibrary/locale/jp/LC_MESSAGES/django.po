@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-17 17:35+0000\n"
+"POT-Creation-Date: 2022-08-19 13:19+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,6 +58,102 @@ msgstr "すべての本"
 #: catalog/templates/base_generic.html:21
 msgid "All authors"
 msgstr "すべての著者"
+
+#: catalog/templates/base_generic.html:31
+msgid "previous"
+msgstr "前"
+
+#: catalog/templates/base_generic.html:34
+msgid "Page"
+msgstr "ページ"
+
+#: catalog/templates/base_generic.html:34
+msgid "of"
+msgstr "の"
+
+#: catalog/templates/base_generic.html:37
+msgid "next"
+msgstr "次"
+
+#: catalog/templates/catalog/author_detail.html:5
+#, fuzzy
+#| msgid "Authors:"
+msgid "Author"
+msgstr "著者:"
+
+#: catalog/templates/catalog/author_detail.html:9
+#, fuzzy
+#| msgid "Books:"
+msgid "Books"
+msgstr "本"
+
+#: catalog/templates/catalog/author_detail.html:14
+msgid "Book Summary"
+msgstr "本の概要"
+
+#: catalog/templates/catalog/author_list.html:5
+#, fuzzy
+#| msgid "Authors:"
+msgid "Author List"
+msgstr "著者:"
+
+#: catalog/templates/catalog/author_list.html:20
+msgid "There are no authors available."
+msgstr "利用可能な著者はありません。"
+
+#: catalog/templates/catalog/book_detail.html:4
+msgid "Title:"
+msgstr "題名:"
+
+#: catalog/templates/catalog/book_detail.html:6
+#, fuzzy
+#| msgid "Authors:"
+msgid "Author:"
+msgstr "著者:"
+
+#: catalog/templates/catalog/book_detail.html:7
+msgid "Summary:"
+msgstr "概要:"
+
+#: catalog/templates/catalog/book_detail.html:8
+msgid "ISBN:"
+msgstr "ISBN:"
+
+#: catalog/templates/catalog/book_detail.html:9
+msgid "Language:"
+msgstr "言語:"
+
+#: catalog/templates/catalog/book_detail.html:10
+msgid "Genre:"
+msgstr "ジャンル："
+
+#: catalog/templates/catalog/book_detail.html:13
+#, fuzzy
+#| msgid "Copies:"
+msgid "Copies"
+msgstr "コピー:"
+
+#: catalog/templates/catalog/book_detail.html:21
+msgid "Due to be returned:"
+msgstr "返品予定:"
+
+#: catalog/templates/catalog/book_detail.html:23
+msgid "Imprint:"
+msgstr "インプリント:"
+
+#: catalog/templates/catalog/book_detail.html:24
+msgid "Id:"
+msgstr "Id:"
+
+#: catalog/templates/catalog/book_list.html:5
+#, fuzzy
+#| msgid "Books:"
+msgid "Book List"
+msgstr "ブックリスト"
+
+#: catalog/templates/catalog/book_list.html:15
+msgid "There are no books in the library."
+msgstr "図書館に本がありません。"
 
 #: catalog/templates/index.html:4
 msgid "Local Library Home"

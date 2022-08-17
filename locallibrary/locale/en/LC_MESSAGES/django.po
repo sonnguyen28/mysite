@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-17 17:35+0000\n"
+"POT-Creation-Date: 2022-08-19 13:19+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,6 +56,90 @@ msgstr ""
 
 #: catalog/templates/base_generic.html:21
 msgid "All authors"
+msgstr ""
+
+#: catalog/templates/base_generic.html:31
+msgid "previous"
+msgstr ""
+
+#: catalog/templates/base_generic.html:34
+msgid "Page"
+msgstr ""
+
+#: catalog/templates/base_generic.html:34
+msgid "of"
+msgstr ""
+
+#: catalog/templates/base_generic.html:37
+msgid "next"
+msgstr ""
+
+#: catalog/templates/catalog/author_detail.html:5
+msgid "Author"
+msgstr ""
+
+#: catalog/templates/catalog/author_detail.html:9
+msgid "Books"
+msgstr ""
+
+#: catalog/templates/catalog/author_detail.html:14
+msgid "Book Summary"
+msgstr ""
+
+#: catalog/templates/catalog/author_list.html:5
+msgid "Author List"
+msgstr ""
+
+#: catalog/templates/catalog/author_list.html:20
+msgid "There are no authors available."
+msgstr ""
+
+#: catalog/templates/catalog/book_detail.html:4
+msgid "Title:"
+msgstr ""
+
+#: catalog/templates/catalog/book_detail.html:6
+msgid "Author:"
+msgstr ""
+
+#: catalog/templates/catalog/book_detail.html:7
+msgid "Summary:"
+msgstr ""
+
+#: catalog/templates/catalog/book_detail.html:8
+msgid "ISBN:"
+msgstr ""
+
+#: catalog/templates/catalog/book_detail.html:9
+msgid "Language:"
+msgstr ""
+
+#: catalog/templates/catalog/book_detail.html:10
+msgid "Genre:"
+msgstr ""
+
+#: catalog/templates/catalog/book_detail.html:13
+msgid "Copies"
+msgstr ""
+
+#: catalog/templates/catalog/book_detail.html:21
+msgid "Due to be returned:"
+msgstr ""
+
+#: catalog/templates/catalog/book_detail.html:23
+msgid "Imprint:"
+msgstr ""
+
+#: catalog/templates/catalog/book_detail.html:24
+msgid "Id:"
+msgstr ""
+
+#: catalog/templates/catalog/book_list.html:5
+msgid "Book List"
+msgstr ""
+
+#: catalog/templates/catalog/book_list.html:15
+msgid "There are no books in the library."
 msgstr ""
 
 #: catalog/templates/index.html:4
