@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-15 13:20+0700\n"
+"POT-Creation-Date: 2022-08-17 17:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: catalog/models.py:10
 msgid "Enter a book genre (e.g. Science Fiction, French Poetry etc.)"
 msgstr ""
@@ -29,12 +30,6 @@ msgstr ""
 msgid "Enter a brief description of the book"
 msgstr ""
 
-#: catalog/models.py:31
-msgid ""
-"13 Character <a href=\"https://www.isbn-international.org/content/what-isbn"
-"\">ISBN number</a>"
-msgstr ""
-
 #: catalog/models.py:33
 msgid "Select a genre for this book"
 msgstr ""
@@ -45,6 +40,58 @@ msgstr ""
 
 #: catalog/models.py:75
 msgid "Book availability"
+msgstr ""
+
+#: catalog/templates/base_generic.html:6
+msgid "My Local Library"
+msgstr ""
+
+#: catalog/templates/base_generic.html:19
+msgid "Home"
+msgstr ""
+
+#: catalog/templates/base_generic.html:20
+msgid "All books"
+msgstr ""
+
+#: catalog/templates/base_generic.html:21
+msgid "All authors"
+msgstr ""
+
+#: catalog/templates/index.html:4
+msgid "Local Library Home"
+msgstr ""
+
+#: catalog/templates/index.html:5
+msgid "Welcome to LocalLibrary, a website developed by"
+msgstr ""
+
+#: catalog/templates/index.html:5
+msgid "Mozilla Developer Network"
+msgstr ""
+
+#: catalog/templates/index.html:6
+msgid "Dynamic content"
+msgstr ""
+
+#: catalog/templates/index.html:7
+msgid "The library has the following record counts:"
+msgstr ""
+
+#: catalog/templates/index.html:9
+msgid "Books:"
+msgstr ""
+
+#: catalog/templates/index.html:10
+msgid "Copies:"
+msgstr ""
+
+#: catalog/templates/index.html:11
+msgid "Copies available:"
+msgstr ""
+
+#: catalog/templates/index.html:12
+msgid "Authors:"
 msgstr ""
 
 #: locallibrary/settings.py:117
