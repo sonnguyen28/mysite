@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-20 00:03+0700\n"
+"POT-Creation-Date: 2022-08-22 09:49+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,19 +59,35 @@ msgstr "すべての本"
 msgid "All authors"
 msgstr "すべての著者"
 
-#: catalog/templates/base_generic.html:31
+#: catalog/templates/base_generic.html:23
+msgid "User:"
+msgstr ""
+
+#: catalog/templates/base_generic.html:24
+msgid "My Borrowed"
+msgstr ""
+
+#: catalog/templates/base_generic.html:25
+msgid "Logout"
+msgstr ""
+
+#: catalog/templates/base_generic.html:27
+msgid "Login"
+msgstr ""
+
+#: catalog/templates/base_generic.html:38
 msgid "previous"
 msgstr "前"
 
-#: catalog/templates/base_generic.html:34
+#: catalog/templates/base_generic.html:41
 msgid "Page"
 msgstr "ページ"
 
-#: catalog/templates/base_generic.html:34
+#: catalog/templates/base_generic.html:41
 msgid "of"
 msgstr "の"
 
-#: catalog/templates/base_generic.html:37
+#: catalog/templates/base_generic.html:44
 msgid "next"
 msgstr "次"
 
@@ -143,6 +159,16 @@ msgstr "本一覧"
 msgid "There are no books in the library."
 msgstr "図書館に本がありません。"
 
+#: catalog/templates/catalog/bookinstance_list_borrowed_user.html:4
+msgid "Borrowed books"
+msgstr "借りた本"
+
+#: catalog/templates/catalog/bookinstance_list_borrowed_user.html:17
+#, fuzzy
+#| msgid "There are no books in the library."
+msgid "There are no books borrowed."
+msgstr "図書館に本がありません。"
+
 #: catalog/templates/index.html:4
 msgid "Local Library Home"
 msgstr "地域の図書館ホーム"
@@ -194,3 +220,72 @@ msgstr "英語"
 #: locallibrary/settings.py:118
 msgid "Japanese"
 msgstr "日本語"
+
+#: templates/registration/logged_out.html:4
+msgid "Logged out!"
+msgstr "ログアウトしました。"
+
+#: templates/registration/logged_out.html:5
+msgid "Click here to login again."
+msgstr "ここをクリックして再度ログインしてください"
+
+#: templates/registration/login.html:6
+msgid "Your username and password didn't match. Please try again."
+msgstr ""
+"ユーザー名とパスワードが一致しませんでした。もう一度やり直してください。"
+
+#: templates/registration/login.html:14
+msgid "Please login to see this page."
+msgstr "このページを見るにはログインしてください。"
+
+#: templates/registration/login.html:34
+msgid "Lost password?"
+msgstr "パスワードをお忘れですか？"
+
+#: templates/registration/password_reset_complete.html:4
+msgid "The password has been changed!"
+msgstr "パスワードが変更されました。"
+
+#: templates/registration/password_reset_complete.html:5
+msgid "log in again?"
+msgstr "もう一度ログインしますか？"
+
+#: templates/registration/password_reset_confirm.html:5
+msgid "Please enter (and confirm) your new password."
+msgstr "新しいパスワードを入力 (および確認) してください。"
+
+#: templates/registration/password_reset_confirm.html:11
+msgid "New password:"
+msgstr "新しいパスワード："
+
+#: templates/registration/password_reset_confirm.html:16
+msgid "Confirm password:"
+msgstr "パスワードを認証する："
+
+#: templates/registration/password_reset_confirm.html:26
+msgid "Password reset failed"
+msgstr "パスワードのリセットに失敗しました"
+
+#: templates/registration/password_reset_confirm.html:27
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
+msgstr ""
+"パスワード リセット リンクが無効でした。すでに使用されている可能性がありま"
+"す。新しいパスワードのリセットをリクエストしてください。"
+
+#: templates/registration/password_reset_done.html:4
+msgid ""
+"We've emailed you instructions for setting your password. If they haven't "
+"arrived in a few minutes, check your spam folder."
+msgstr ""
+"パスワードの設定手順をメールで送信しました。数分たってもメールが届かない場合"
+"は、迷惑メール フォルダを確認してください。"
+
+#: templates/registration/password_reset_email.html:1
+msgid "Someone asked for password reset for email"
+msgstr "誰かがメールのパスワードのリセットを要求しました"
+
+#: templates/registration/password_reset_email.html:1
+msgid ". Follow the link below:"
+msgstr "。以下のリンクに従ってください。"
