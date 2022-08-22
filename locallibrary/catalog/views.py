@@ -11,11 +11,15 @@ def index(request):
 
     num_authors = Author.objects.count()
 
+    num_visits = request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits + 1
+
     context = {
         'num_books': num_books,
         'num_instances': num_instances,
         'num_instances_available': num_instances_available,
         'num_authors': num_authors,
+        'num_visits': num_visits,
     }
 
     # Render the HTML template index.html with the data in the context variable
@@ -36,7 +40,6 @@ class BookDetailView(generic.DetailView):
         context = super().get_context_data(**kwargs)
         context['instance_list'] = self.object.bookinstance_set.all
         return context
-
 class AuthorListView(generic.ListView):
     model = Author
     paginate_by = 2

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-19 13:19+0700\n"
+"POT-Creation-Date: 2022-08-20 00:03+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,14 +76,10 @@ msgid "next"
 msgstr "次"
 
 #: catalog/templates/catalog/author_detail.html:5
-#, fuzzy
-#| msgid "Authors:"
 msgid "Author"
 msgstr "著者:"
 
 #: catalog/templates/catalog/author_detail.html:9
-#, fuzzy
-#| msgid "Books:"
 msgid "Books"
 msgstr "本"
 
@@ -92,10 +88,8 @@ msgid "Book Summary"
 msgstr "本の概要"
 
 #: catalog/templates/catalog/author_list.html:5
-#, fuzzy
-#| msgid "Authors:"
 msgid "Author List"
-msgstr "著者:"
+msgstr "著者一覧"
 
 #: catalog/templates/catalog/author_list.html:20
 msgid "There are no authors available."
@@ -106,8 +100,6 @@ msgid "Title:"
 msgstr "題名:"
 
 #: catalog/templates/catalog/book_detail.html:6
-#, fuzzy
-#| msgid "Authors:"
 msgid "Author:"
 msgstr "著者:"
 
@@ -128,8 +120,6 @@ msgid "Genre:"
 msgstr "ジャンル："
 
 #: catalog/templates/catalog/book_detail.html:13
-#, fuzzy
-#| msgid "Copies:"
 msgid "Copies"
 msgstr "コピー:"
 
@@ -146,10 +136,8 @@ msgid "Id:"
 msgstr "Id:"
 
 #: catalog/templates/catalog/book_list.html:5
-#, fuzzy
-#| msgid "Books:"
 msgid "Book List"
-msgstr "ブックリスト"
+msgstr "本一覧"
 
 #: catalog/templates/catalog/book_list.html:15
 msgid "There are no books in the library."
@@ -190,6 +178,14 @@ msgstr "利用可能なコピー:"
 #: catalog/templates/index.html:12
 msgid "Authors:"
 msgstr "著者:"
+
+#: catalog/templates/index.html:15
+msgid "You have visited this page"
+msgstr "このページにアクセスしました"
+
+#: catalog/templates/index.html:15
+msgid "time"
+msgstr "回"
 
 #: locallibrary/settings.py:117
 msgid "English"
