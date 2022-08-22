@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-20 00:03+0700\n"
+"POT-Creation-Date: 2022-08-22 09:49+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,19 +58,35 @@ msgstr ""
 msgid "All authors"
 msgstr ""
 
-#: catalog/templates/base_generic.html:31
+#: catalog/templates/base_generic.html:23
+msgid "User:"
+msgstr ""
+
+#: catalog/templates/base_generic.html:24
+msgid "My Borrowed"
+msgstr ""
+
+#: catalog/templates/base_generic.html:25
+msgid "Logout"
+msgstr ""
+
+#: catalog/templates/base_generic.html:27
+msgid "Login"
+msgstr ""
+
+#: catalog/templates/base_generic.html:38
 msgid "previous"
 msgstr ""
 
-#: catalog/templates/base_generic.html:34
+#: catalog/templates/base_generic.html:41
 msgid "Page"
 msgstr ""
 
-#: catalog/templates/base_generic.html:34
+#: catalog/templates/base_generic.html:41
 msgid "of"
 msgstr ""
 
-#: catalog/templates/base_generic.html:37
+#: catalog/templates/base_generic.html:44
 msgid "next"
 msgstr ""
 
@@ -142,6 +158,14 @@ msgstr ""
 msgid "There are no books in the library."
 msgstr ""
 
+#: catalog/templates/catalog/bookinstance_list_borrowed_user.html:4
+msgid "Borrowed books"
+msgstr ""
+
+#: catalog/templates/catalog/bookinstance_list_borrowed_user.html:17
+msgid "There are no books borrowed."
+msgstr ""
+
 #: catalog/templates/index.html:4
 msgid "Local Library Home"
 msgstr ""
@@ -192,4 +216,68 @@ msgstr ""
 
 #: locallibrary/settings.py:118
 msgid "Japanese"
+msgstr ""
+
+#: templates/registration/logged_out.html:4
+msgid "Logged out!"
+msgstr ""
+
+#: templates/registration/logged_out.html:5
+msgid "Click here to login again."
+msgstr ""
+
+#: templates/registration/login.html:6
+msgid "Your username and password didn't match. Please try again."
+msgstr ""
+
+#: templates/registration/login.html:14
+msgid "Please login to see this page."
+msgstr ""
+
+#: templates/registration/login.html:34
+msgid "Lost password?"
+msgstr ""
+
+#: templates/registration/password_reset_complete.html:4
+msgid "The password has been changed!"
+msgstr ""
+
+#: templates/registration/password_reset_complete.html:5
+msgid "log in again?"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:5
+msgid "Please enter (and confirm) your new password."
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:11
+msgid "New password:"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:16
+msgid "Confirm password:"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:26
+msgid "Password reset failed"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:27
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
+msgstr ""
+
+#: templates/registration/password_reset_done.html:4
+msgid ""
+"We've emailed you instructions for setting your password. If they haven't "
+"arrived in a few minutes, check your spam folder."
+msgstr ""
+
+#: templates/registration/password_reset_email.html:1
+msgid "Someone asked for password reset for email"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:1
+msgid ". Follow the link below:"
 msgstr ""
