@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-22 09:49+0700\n"
+"POT-Creation-Date: 2022-08-23 13:26+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,18 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: catalog/forms.py:9
+msgid "Enter a date between now and 4 weeks (default 3)."
+msgstr "現在から 4 週間の間の日付を入力します (デフォルトは 3 です)。"
+
+#: catalog/forms.py:15
+msgid "Invalid date - renewal in past"
+msgstr "無効な日付 - 過去の更新"
+
+#: catalog/forms.py:18
+msgid "Invalid date - renewal more than 4 weeks ahead"
+msgstr "無効な日付 - 4 週間以上先の更新"
 
 #: catalog/models.py:10
 msgid "Enter a book genre (e.g. Science Fiction, French Poetry etc.)"
@@ -61,38 +73,61 @@ msgstr "すべての著者"
 
 #: catalog/templates/base_generic.html:23
 msgid "User:"
-msgstr ""
+msgstr "ユーザー："
 
 #: catalog/templates/base_generic.html:24
 msgid "My Borrowed"
-msgstr ""
+msgstr "私の借り物"
 
 #: catalog/templates/base_generic.html:25
 msgid "Logout"
-msgstr ""
+msgstr "ログアウト"
 
 #: catalog/templates/base_generic.html:27
 msgid "Login"
-msgstr ""
+msgstr "ログイン"
 
-#: catalog/templates/base_generic.html:38
+#: catalog/templates/base_generic.html:32
+msgid "Staff"
+msgstr "スタッフ"
+
+#: catalog/templates/base_generic.html:34
+#, fuzzy
+#| msgid "All books"
+msgid "All borrowed"
+msgstr "すべての本"
+
+#: catalog/templates/base_generic.html:47
 msgid "previous"
 msgstr "前"
 
-#: catalog/templates/base_generic.html:41
+#: catalog/templates/base_generic.html:50
 msgid "Page"
 msgstr "ページ"
 
-#: catalog/templates/base_generic.html:41
+#: catalog/templates/base_generic.html:50
 msgid "of"
 msgstr "の"
 
-#: catalog/templates/base_generic.html:44
+#: catalog/templates/base_generic.html:53
 msgid "next"
 msgstr "次"
 
+#: catalog/templates/catalog/author_confirm_delete.html:5
+msgid "Delete Author"
+msgstr "作成者を削除"
+
+#: catalog/templates/catalog/author_confirm_delete.html:7
+msgid "Are you sure you want to delete the author:"
+msgstr "作成者を削除してもよろしいですか。"
+
+#: catalog/templates/catalog/author_confirm_delete.html:11
+msgid "Yes, delete."
+msgstr "はい、削除します。"
+
 #: catalog/templates/catalog/author_detail.html:5
-msgid "Author"
+#: catalog/templates/catalog/book_detail.html:6
+msgid "Author:"
 msgstr "著者:"
 
 #: catalog/templates/catalog/author_detail.html:9
@@ -114,10 +149,6 @@ msgstr "利用可能な著者はありません。"
 #: catalog/templates/catalog/book_detail.html:4
 msgid "Title:"
 msgstr "題名:"
-
-#: catalog/templates/catalog/book_detail.html:6
-msgid "Author:"
-msgstr "著者:"
 
 #: catalog/templates/catalog/book_detail.html:7
 msgid "Summary:"
@@ -159,15 +190,40 @@ msgstr "本一覧"
 msgid "There are no books in the library."
 msgstr "図書館に本がありません。"
 
-#: catalog/templates/catalog/bookinstance_list_borrowed_user.html:4
-msgid "Borrowed books"
+#: catalog/templates/catalog/book_renew_librarian.html:4
+msgid "Renew:"
+msgstr "更新:"
+
+#: catalog/templates/catalog/book_renew_librarian.html:5
+#, fuzzy
+#| msgid "Borrowed books"
+msgid "Borrower:"
 msgstr "借りた本"
 
+#: catalog/templates/catalog/book_renew_librarian.html:6
+msgid "Due date:"
+msgstr "期日："
+
+#: catalog/templates/catalog/bookinstance_list_borrowed_all.html:4
+#, fuzzy
+#| msgid "Borrowed books"
+msgid "All Borrowed Books"
+msgstr "借りた本"
+
+#: catalog/templates/catalog/bookinstance_list_borrowed_all.html:11
+msgid "Renew"
+msgstr "更新する"
+
+#: catalog/templates/catalog/bookinstance_list_borrowed_all.html:17
 #: catalog/templates/catalog/bookinstance_list_borrowed_user.html:17
 #, fuzzy
 #| msgid "There are no books in the library."
 msgid "There are no books borrowed."
 msgstr "図書館に本がありません。"
+
+#: catalog/templates/catalog/bookinstance_list_borrowed_user.html:4
+msgid "Borrowed books"
+msgstr "借りた本"
 
 #: catalog/templates/index.html:4
 msgid "Local Library Home"
@@ -282,10 +338,13 @@ msgstr ""
 "パスワードの設定手順をメールで送信しました。数分たってもメールが届かない場合"
 "は、迷惑メール フォルダを確認してください。"
 
-#: templates/registration/password_reset_email.html:1
+#: templates/registration/password_reset_email.html:2
 msgid "Someone asked for password reset for email"
 msgstr "誰かがメールのパスワードのリセットを要求しました"
 
-#: templates/registration/password_reset_email.html:1
+#: templates/registration/password_reset_email.html:2
 msgid ". Follow the link below:"
 msgstr "。以下のリンクに従ってください。"
+
+#~ msgid "Author"
+#~ msgstr "著者:"

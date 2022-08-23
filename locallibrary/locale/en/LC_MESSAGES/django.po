@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-22 09:49+0700\n"
+"POT-Creation-Date: 2022-08-23 13:26+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: catalog/forms.py:9
+msgid "Enter a date between now and 4 weeks (default 3)."
+msgstr ""
+
+#: catalog/forms.py:15
+msgid "Invalid date - renewal in past"
+msgstr ""
+
+#: catalog/forms.py:18
+msgid "Invalid date - renewal more than 4 weeks ahead"
+msgstr ""
 
 #: catalog/models.py:10
 msgid "Enter a book genre (e.g. Science Fiction, French Poetry etc.)"
@@ -74,24 +86,45 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: catalog/templates/base_generic.html:38
+#: catalog/templates/base_generic.html:32
+msgid "Staff"
+msgstr ""
+
+#: catalog/templates/base_generic.html:34
+msgid "All borrowed"
+msgstr ""
+
+#: catalog/templates/base_generic.html:47
 msgid "previous"
 msgstr ""
 
-#: catalog/templates/base_generic.html:41
+#: catalog/templates/base_generic.html:50
 msgid "Page"
 msgstr ""
 
-#: catalog/templates/base_generic.html:41
+#: catalog/templates/base_generic.html:50
 msgid "of"
 msgstr ""
 
-#: catalog/templates/base_generic.html:44
+#: catalog/templates/base_generic.html:53
 msgid "next"
 msgstr ""
 
+#: catalog/templates/catalog/author_confirm_delete.html:5
+msgid "Delete Author"
+msgstr ""
+
+#: catalog/templates/catalog/author_confirm_delete.html:7
+msgid "Are you sure you want to delete the author:"
+msgstr ""
+
+#: catalog/templates/catalog/author_confirm_delete.html:11
+msgid "Yes, delete."
+msgstr ""
+
 #: catalog/templates/catalog/author_detail.html:5
-msgid "Author"
+#: catalog/templates/catalog/book_detail.html:6
+msgid "Author:"
 msgstr ""
 
 #: catalog/templates/catalog/author_detail.html:9
@@ -112,10 +145,6 @@ msgstr ""
 
 #: catalog/templates/catalog/book_detail.html:4
 msgid "Title:"
-msgstr ""
-
-#: catalog/templates/catalog/book_detail.html:6
-msgid "Author:"
 msgstr ""
 
 #: catalog/templates/catalog/book_detail.html:7
@@ -158,12 +187,33 @@ msgstr ""
 msgid "There are no books in the library."
 msgstr ""
 
-#: catalog/templates/catalog/bookinstance_list_borrowed_user.html:4
-msgid "Borrowed books"
+#: catalog/templates/catalog/book_renew_librarian.html:4
+msgid "Renew:"
 msgstr ""
 
+#: catalog/templates/catalog/book_renew_librarian.html:5
+msgid "Borrower:"
+msgstr ""
+
+#: catalog/templates/catalog/book_renew_librarian.html:6
+msgid "Due date:"
+msgstr ""
+
+#: catalog/templates/catalog/bookinstance_list_borrowed_all.html:4
+msgid "All Borrowed Books"
+msgstr ""
+
+#: catalog/templates/catalog/bookinstance_list_borrowed_all.html:11
+msgid "Renew"
+msgstr ""
+
+#: catalog/templates/catalog/bookinstance_list_borrowed_all.html:17
 #: catalog/templates/catalog/bookinstance_list_borrowed_user.html:17
 msgid "There are no books borrowed."
+msgstr ""
+
+#: catalog/templates/catalog/bookinstance_list_borrowed_user.html:4
+msgid "Borrowed books"
 msgstr ""
 
 #: catalog/templates/index.html:4
@@ -274,10 +324,10 @@ msgid ""
 "arrived in a few minutes, check your spam folder."
 msgstr ""
 
-#: templates/registration/password_reset_email.html:1
+#: templates/registration/password_reset_email.html:2
 msgid "Someone asked for password reset for email"
 msgstr ""
 
-#: templates/registration/password_reset_email.html:1
+#: templates/registration/password_reset_email.html:2
 msgid ". Follow the link below:"
 msgstr ""
