@@ -2,21 +2,30 @@
 {% load i18n %}
 
 {% block content %}
-<h1>{% trans "Author List" %} </h1>
+    <h1 class="text-center">{% trans "Author List" %} </h1>
+    <div class="row text-center py-2 mt-3">
+        <div class="col-3 mx-auto">
+            <form action="{% url 'author-search' %}" method="get">
+                <div class="input-group input-group-dynamic mb-4">
+                    <span class="input-group-text"><i class="fas fa-search" aria-hidden="true"></i></span>
+                    <input name="author" class="form-control w-100" placeholder="Search" type="text">
+                </div>
+            </form>
+        </div>
+    </div>
+    {% if author_list %}
+        <ul>
+            {% for author in author_list %}
+                <li>
+                    <a href="{{ author.get_absolute_url }}">
+                        {{ author }} ({{ author.date_of_birth }} -
+                        {% if author.date_of_death %}{{ author.date_of_death }}{% endif %})
+                    </a>
+                </li>
+            {% endfor %}
 
-{% if author_list %}
-  <ul>
-
-  {% for author in author_list %}
-    <li>
-      <a href="{{ author.get_absolute_url }}">
-      {{ author }} ({{author.date_of_birth}} - {% if author.date_of_death %}{{author.date_of_death}}{% endif %})
-      </a>
-    </li>
-  {% endfor %}
-
- </ul>
-{% else %}
-  <p>{% trans "There are no authors available." %}</p>
-{% endif %}
+        </ul>
+    {% else %}
+        <p>{% trans "There are no authors available." %}</p>
+    {% endif %}
 {% endblock %}

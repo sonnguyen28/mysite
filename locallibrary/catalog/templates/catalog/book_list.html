@@ -2,16 +2,26 @@
 {% load i18n %}
 
 {% block content %}
-  <h1>{% trans "Book List" %}</h1>
-  {% if book_list %}
-  <ul>
-    {% for book in book_list %}
-      <li>
-        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})
-      </li>
-    {% endfor %}
-  </ul>
-  {% else %}
-    <p>{% trans "There are no books in the library." %}</p>
-  {% endif %}
+    <h1 class="text-center">{% trans "Book List" %}</h1>
+    <div class="row text-center py-2 mt-3">
+        <div class="col-3 mx-auto">
+            <form action="{% url 'book-search' %}" method="get">
+                <div class="input-group input-group-dynamic mb-4">
+                    <span class="input-group-text"><i class="fas fa-search" aria-hidden="true"></i></span>
+                    <input name="book" class="form-control w-100" placeholder="Search" type="text">
+                </div>
+            </form>
+        </div>
+    </div>
+    {% if book_list %}
+        <ul>
+            {% for book in book_list %}
+                <li>
+                    <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{ book.author }})
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>{% trans "There are no books in the library." %}</p>
+    {% endif %}
 {% endblock %}
