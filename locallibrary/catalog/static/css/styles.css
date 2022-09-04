@@ -3,3 +3,11 @@
     padding: 0;
     list-style: none;
 }
+
+.background-contain {
+    background-color: hsla(0,0%,100%,.9)!important;
+}
+
+#id_username, #id_password {
+    width: 350px!important;
+}

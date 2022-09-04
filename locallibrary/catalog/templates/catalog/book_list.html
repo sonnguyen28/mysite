@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block content %}
-    <h1 class="text-center">{% trans "Book List" %}</h1>
+    <h2 class="text-center">{% trans "BOOK LIST" %}</h2>
     <div class="row text-center py-2 mt-3">
         <div class="col-3 mx-auto">
             <form action="{% url 'book-search' %}" method="get">
@@ -20,23 +20,59 @@
                 {% for book in book_list %}
                     <div class="col-md-3">
                         <div class="card-group">
-                            <div class="card">
-                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 text-center bg-transparent">
-                                    <a class="d-block blur-shadow-image">
-                                        <img src="{{ book.cover_image.url }}" style="width: 200px; height: 300px"
-                                             alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
-                                    </a>
+                            {% if user.is_staff %}
+                                {% if perms.catalog.can_mark_returned %}
+                                    <div class="card" data-animation="true">
+                                        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 text-center bg-transparent">
+                                            <a class="d-block blur-shadow-image">
+                                                <img src="{{ book.cover_image.url }}"
+                                                     style="width: 200px; height: 300px"
+                                                     alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                                            </a>
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <div class="d-flex mt-n6 mx-auto">
+                                                <a class="btn btn-link text-primary ms-auto border-0"
+                                                   data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"
+                                                   href="{% url 'book-delete' book.pk %} ">
+                                                    <i class="material-icons text-lg">delete</i>
+                                                </a>
+                                                <a class="btn btn-link text-info me-auto border-0"
+                                                   data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                   title="Edit"
+                                                   href="{% url 'book-update' book.pk %}">
+                                                    <i class="material-icons text-lg">edit</i>
+                                                </a>
+                                            </div>
+                                            <h5 class="font-weight-normal">
+                                                <a href="{{ book.get_absolute_url }}">{{ book.title }}</a>
+                                            </h5>
+                                        </div>
+                                        <hr class="dark horizontal my-0">
+                                        <div class="card-footer d-flex">
+                                            <p class="font-weight-normal my-auto">{{ book.author }}</p>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% else %}
+                                <div class="card">
+                                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 text-center bg-transparent">
+                                        <a class="d-block blur-shadow-image">
+                                            <img src="{{ book.cover_image.url }}" style="width: 200px; height: 300px"
+                                                 alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                                        </a>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h5 class="font-weight-normal">
+                                            <a href="{{ book.get_absolute_url }}">{{ book.title }}</a>
+                                        </h5>
+                                    </div>
+                                    <hr class="dark horizontal my-0">
+                                    <div class="card-footer d-flex">
+                                        <p class="font-weight-normal my-auto">{{ book.author }}</p>
+                                    </div>
                                 </div>
-                                <div class="card-body text-center">
-                                    <h5 class="font-weight-normal mt-3">
-                                        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a>
-                                    </h5>
-                                </div>
-                                <hr class="dark horizontal my-0">
-                                <div class="card-footer d-flex">
-                                    <p class="font-weight-normal my-auto">{{ book.author }}</p>
-                                </div>
-                            </div>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}

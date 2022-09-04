@@ -1,18 +1,16 @@
 {% extends "base_generic.html" %}
 {% load i18n %}
 {% block content %}
-
-    <h1 class="text-center">{% trans "Delete Author" %}</h1>
-
+    <h1 class="text-center">{% trans "Delete Book" %}</h1>
     <div class="container">
-        <p class="fs-4 fst-italic fw-semibold text-center">{% trans "Are you sure you want to delete " %} {{ author }}
+        <p class="fs-4 fst-italic fw-semibold text-center">{% trans "Are you sure you want to delete " %} {{ book }}
             ?</p>
         <form action="" method="POST">
             <form class="content-body" action="" method="POST">
                 {% csrf_token %}
                 <div class="d-flex justify-content-center gap-3">
                     <button type="submit" class="btn btn-danger">{% trans "Yes, delete." %}</button>
-                    <a type="button" href="{% url 'authors' %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+                    <a type="button" href="{% url 'books' %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
                 </div>
             </form>
 

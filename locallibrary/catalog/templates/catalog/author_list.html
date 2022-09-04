@@ -2,9 +2,9 @@
 {% load i18n %}
 
 {% block content %}
-    <h1 class="text-center">{% trans "Author List" %} </h1>
-    <div class="row text-center py-2 mt-3">
-        <div class="col-3 mx-auto">
+
+    <div class="row text-center py-2 mt-3 me-5 justify-content-end">
+        <div class="col-3">
             <form action="{% url 'author-search' %}" method="get">
                 <div class="input-group input-group-dynamic mb-4">
                     <span class="input-group-text"><i class="fas fa-search" aria-hidden="true"></i></span>
@@ -13,17 +13,39 @@
             </form>
         </div>
     </div>
+
     {% if author_list %}
-        <ul>
+        <ul class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active">
+                <p class="text-center fs-3 fw-semibold text-white mb-0">{% trans "AUTHOR LIST" %} </p>
+            </a>
             {% for author in author_list %}
-                <li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
                     <a href="{{ author.get_absolute_url }}">
                         {{ author }} ({{ author.date_of_birth }} -
                         {% if author.date_of_death %}{{ author.date_of_death }}{% endif %})
                     </a>
+                    {% if user.is_staff %}
+                        {% if perms.catalog.can_mark_returned %}
+                            <span class="badge badge-primary badge-pill">
+                                <div class="d-flex mx-auto">
+                                    <a class="btn btn-link text-primary ms-auto border-0 mb-0"
+                                       data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"
+                                       href="{% url 'author-delete' author.pk %} ">
+                                        <i class="material-icons text-lg">delete</i>
+                                    </a>
+                                    <a class="btn btn-link text-info me-auto border-0 mb-0"
+                                       data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                       title="Edit"
+                                       href="{% url 'author-update' author.pk %}">
+                                        <i class="material-icons text-lg">edit</i>
+                                    </a>
+                                </div>
+                            </span>
+                        {% endif %}
+                    {% endif %}
                 </li>
             {% endfor %}
-
         </ul>
     {% else %}
         <p>{% trans "There are no authors available." %}</p>

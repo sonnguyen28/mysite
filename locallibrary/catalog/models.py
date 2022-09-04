@@ -51,7 +51,7 @@ class Book(models.Model):
 class BookInstance(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4,
                           help_text=_("Unique ID for this particular book across whole library"))
-    book = models.ForeignKey('Book', on_delete=models.RESTRICT, null=True)
+    book = models.ForeignKey('Book', on_delete=models.CASCADE, null=True)
     imprint = models.CharField(max_length=200)
     due_back = models.DateField(null=True, blank=True)
     borrower = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
@@ -94,4 +94,4 @@ class Author(models.Model):
         return reverse('author-detail', args=[str(self.id)])
 
     def __str__(self):
-        return '{0}, {1}'.format(self.last_name, self.first_name)
+        return '{0} {1}'.format(self.first_name, self.last_name )
