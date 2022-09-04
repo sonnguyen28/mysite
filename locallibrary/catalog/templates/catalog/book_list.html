@@ -14,13 +14,35 @@
         </div>
     </div>
     {% if book_list %}
-        <ul>
-            {% for book in book_list %}
-                <li>
-                    <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{ book.author }})
-                </li>
-            {% endfor %}
-        </ul>
+
+        <div class="container">
+            <div class="row py-5">
+                {% for book in book_list %}
+                    <div class="col-md-3">
+                        <div class="card-group">
+                            <div class="card">
+                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 text-center bg-transparent">
+                                    <a class="d-block blur-shadow-image">
+                                        <img src="{{ book.cover_image.url }}" style="width: 200px; height: 300px"
+                                             alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                                    </a>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="font-weight-normal mt-3">
+                                        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a>
+                                    </h5>
+                                </div>
+                                <hr class="dark horizontal my-0">
+                                <div class="card-footer d-flex">
+                                    <p class="font-weight-normal my-auto">{{ book.author }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
     {% else %}
         <p>{% trans "There are no books in the library." %}</p>
     {% endif %}
