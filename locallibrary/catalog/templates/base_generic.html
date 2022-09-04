@@ -6,42 +6,156 @@
     {% block title %}<title>{% trans "My Local Library" %}</title>{% endblock %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/apple-icon.png' %}">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <title>
+        SIMPLE LOCAL LIBRARY
+    </title>
+
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"/>
+
+    <!-- Nucleo Icons -->
+    <link href="{% static 'css/nucleo-icons.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/nucleo-svg.css' %}" rel="stylesheet"/>
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/35ddb1b73e.js" crossorigin="anonymous"></script>
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link id="pagestyle" href="{% static 'css/material-kit.min.css' %}" rel="stylesheet"/>
     <!-- Add additional CSS in static file -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
-<body>
-<div class="container-fluid">
+<body class="index-page bg-gray-200">
+<!-- Navbar -->
+<div class="container position-sticky z-index-sticky top-0">
     <div class="row">
-        <div class="col-sm-2">
-            {% block sidebar %}
-                <ul class="sidebar-nav">
-                    <li><a href="{% url 'index' %}"> {% trans "Home" %} </a></li>
-                    <li><a href="{% url 'books' %}">{% trans "All books" %}</a></li>
-                    <li><a href="{% url 'authors' %}">{% trans "All authors" %}</a></li>
-                    {% if user.is_authenticated %}
-                        <li>{% trans "User:" %} {{ user.get_username }}</li>
-                        <li><a href="{% url 'my-borrowed' %}">{% trans "My Borrowed" %}</a></li>
-                        <li><a href="{% url 'logout' %}?next={{ request.path }}">{% trans "Logout" %}</a></li>
-                    {% else %}
-                        <li><a href="{% url 'login' %}?next={{ request.path }}">{% trans "Login" %}</a></li>
-                    {% endif %}
-                    {% if user.is_staff %}
-                        <hr>
-                        <ul class="sidebar-nav">
-                            <li>{% trans "Staff" %}</li>
-                            {% if perms.catalog.can_mark_returned %}
-                                <li><a href="{% url 'all-borrowed' %}">{% trans "All borrowed" %}</a></li>
+        <div class="col-12">
+            <nav
+                    class="navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+                <div class="container-fluid px-0">
+                    <a class="navbar-brand font-weight-bolder ms-sm-3"
+                       href="{% url 'index' %}"
+                       rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_self">
+                        LOCAL LIBRARY
+                    </a>
+                    <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon mt-2">
+                        <span class="navbar-toggler-bar bar1"></span>
+                        <span class="navbar-toggler-bar bar2"></span>
+                        <span class="navbar-toggler-bar bar3"></span>
+                      </span>
+                    </button>
+
+                    <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
+                        <ul class="navbar-nav navbar-nav-hover ms-auto">
+                            <li class="nav-item ms-lg-auto">
+                                <a class="nav-link nav-link-icon me-2"
+                                   href="{% url 'books' %}" target="_self">
+                                    <i class="fa fa-book me-1" aria-hidden="true"></i>
+                                    <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
+                                       data-bs-placement="bottom">{% trans "All books" %}</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item ms-lg-auto">
+                                <a class="nav-link nav-link-icon me-2"
+                                   href="{% url 'authors' %}" target="_self">
+                                    <i class="fa fa-user-pen" aria-hidden="true"></i>
+                                    <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
+                                       data-bs-placement="bottom">{% trans "All authors" %}</p>
+                                </a>
+                            </li>
+                            {% if user.is_staff %}
+                                <li class="nav-item ms-lg-auto">
+                                    {% if perms.catalog.can_mark_returned %}
+                                        <a class="nav-link nav-link-icon me-2"
+                                           href="{% url 'all-borrowed' %}" target="_self">
+                                            <i class="fa-solid fa-user-tag"></i>
+                                            <p class="d-inline text-sm z-index-1 font-weight-bold"
+                                               data-bs-toggle="tooltip"
+                                               data-bs-placement="bottom">{% trans "All borrowed" %}</p>
+                                        </a>
+                                    {% endif %}
+                                </li>
+                            {% endif %}
+
+                            {% if user.is_authenticated %}
+                                <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
+                                    <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center font-weight-bold"
+                                       id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-user me-2"></i>
+                                        {{ user.get_username }}
+                                        <img src={% static "img/down-arrow-dark.svg" %} alt="down-arrow"
+                                             class="arrow ms-2 d-lg-block d-none">
+                                        <img src={% static "/img/down-arrow-dark.svg" %} alt="down-arrow"
+                                             class="arrow ms-2 d-lg-none d-block">
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-lg mt-0 mt-lg-3"
+                                         aria-labelledby="dropdownMenuPages8">
+                                        <div class="d-none d-lg-block">
+                                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+                                                Landing Pages
+                                            </h6>
+                                            <a href="{% url 'my-borrowed' %}" class="dropdown-item border-radius-md">
+                                                <span>{% trans "My Borrowed" %}</span>
+                                            </a>
+                                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1 mt-3">
+                                                Account
+                                            </h6>
+                                            <a href="{% url 'logout' %}?next={{ request.path }}"
+                                               class="dropdown-item border-radius-md">
+                                                <span>{% trans "Logout" %}</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% else %}
+                                <li class="nav-item my-auto ms-3 ms-lg-0">
+                                    <a href="{% url 'login' %}?next={{ request.path }}"
+                                       class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">{% trans "Login" %}</a>
+                                </li>
                             {% endif %}
                         </ul>
-                    {% endif %}
-                </ul>
-            {% endblock %}
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
         </div>
-        <div class="col-sm-10 ">{% block content %}{% endblock %}
-            {% block pagination %}
-                {% if is_paginated %}
-                    <div class="pagination">
+    </div>
+</div>
+
+<header class="header-2">
+    <div class="page-header min-vh-75 relative" style="background-image: url({% static 'img/bg2.jpg' %})">
+        <span class="mask bg-gradient-primary opacity-4"></span>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 text-center mx-auto">
+                    <h1 class="text-white pt-3 mt-n5">{% trans "SIMPLE LOCAL LIBRARY" %}</h1>
+                    <p class="lead text-white mt-3">{% trans "Welcome to Local Library" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n10">
+    <section class="pt-3 pb-4" id="count-stats">
+        {% block content %}{% endblock %}
+        {% block pagination %}
+            {% if is_paginated %}
+                <div class="pagination">
                       <span class="page-links">
                           {% if page_obj.has_previous %}
                               <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a>
@@ -53,11 +167,56 @@
                               <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">{% trans "next" %}</a>
                           {% endif %}
                       </span>
-                    </div>
-                {% endif %}
-            {% endblock %}
+                </div>
+            {% endif %}
+        {% endblock %}
+    </section>
+
+
+    <!-- -------   START PRE-FOOTER 2 - simple social line w/ title & 3 buttons    -------- -->
+    <div class="py-5">
+        <div class="container">
+
         </div>
     </div>
+    <!-- -------   END PRE-FOOTER 2 - simple social line w/ title & 3 buttons    -------- -->
 </div>
+
+<footer class="footer pt-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 ms-auto">
+                <h4 class="mb-1">Thank you for your support!</h4>
+                <p class="lead mb-0">We deliver the best web products</p>
+            </div>
+            <div class="col-lg-5 me-lg-auto my-lg-auto text-lg-end mt-5">
+                <a href="https://twitter.com/intent/tweet?text=Check%20Material%20UI%20Kit%20made%20by%20%40CreativeTim%20%23webdesign%20%23designsystem%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fmaterial-kit"
+                   class="btn btn-twitter mb-0 me-2" target="_blank">
+                    <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/material-kit"
+                   class="btn btn-facebook mb-0 me-2" target="_blank">
+                    <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
+                </a>
+                <a href="https://www.pinterest.com/pin/create/button/?url=https://www.creative-tim.com/product/material-kit"
+                   class="btn btn-pinterest mb-0 me-2" target="_blank">
+                    <i class="fab fa-pinterest me-1" aria-hidden="true"></i> Pin it
+                </a>
+            </div>
+        </div>
+        <div class=" row">
+            <div class="col-12">
+                <div class="text-center">
+                    <p class="text-dark my-4 text-sm font-weight-normal">
+                        All rights reserved. Copyright ©
+                        2022 Simple Local Library by Sonnguyen28.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
 </body>
 </html>

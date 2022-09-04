@@ -8,8 +8,10 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.db.models import Q
 import datetime
 from .models import Book, Author, BookInstance, Genre
+
 
 from catalog.forms import RenewBookForm
 def index(request):
@@ -55,6 +57,15 @@ class BookDetailView(generic.DetailView):
         context['instance_list'] = self.object.bookinstance_set.all
         return context
 
+class BookSearch(generic.ListView):
+    model = Book
+    template_name = 'search/book_search.html'
+    def get_queryset(self):
+        query = self.request.GET.get("book")
+        book_list = Book.objects.filter(
+            Q(title__icontains=query) | Q(genre__name=query) | Q(author__first_name=query) | Q(author__last_name=query)
+        ).distinct()
+        return book_list
 
 class AuthorListView(generic.ListView):
     model = Author
@@ -68,6 +79,22 @@ class AuthorDetailView(generic.DetailView):
         context = super().get_context_data(**kwargs)
         context['author_book_list'] = Book.objects.all().filter(author=self.object)
         return context
+
+class AuthorSearch(generic.ListView):
+    model = Author
+    def get_queryset(self):
+        query = self.request.GET.get("author")
+
+        if str.isdigit(query) == 1:
+            author_list = Author.objects.filter(
+                Q(first_name=query) | Q(last_name=query) | Q(date_of_birth__year = query)
+            )
+            return author_list
+        else:
+            author_list = Author.objects.filter(
+                Q(first_name=query) | Q(last_name=query)
+            )
+            return author_list
 
 
 class LoanedBooksByUserListView(LoginRequiredMixin, generic.ListView):
