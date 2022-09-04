@@ -31,7 +31,7 @@ class Book(models.Model):
                             help_text='13 Character <a href="https://www.isbn-international.org/content/what-isbn'
                                       '">ISBN number</a>')
     genre = models.ManyToManyField(Genre, help_text=_("Select a genre for this book"))
-
+    cover_image = models.ImageField(upload_to='images', null=True, blank=True)
     language = models.ForeignKey('Language', on_delete=models.SET_NULL, null=True)
 
     class Meta:

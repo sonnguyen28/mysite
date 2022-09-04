@@ -1,27 +1,47 @@
 {% extends "base_generic.html" %}
 {% load i18n %}
 {% block content %}
-  <h1>{% trans "Title:"  %}{{ book.title }}</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col mx-auto py-3">
+                <div class="row">
+                    <div class="col-md-3 position-relative">
+                        <div class="p-3">
+                            {% if book.cover_image %}
+                                <img src="{{ book.cover_image.url }}" style="width: 200px; height: 300px">
+                            {% endif %}
+                        </div>
+                        <hr class="vertical dark">
+                    </div>
+                    <div class="col position-relative">
+                        <div class="text-center">
+                            <h2 class="mt-3">{{ book.title }}</h2>
+                        </div>
+                        <div class="container">
+                            <p><strong>{% trans "Author:" %}</strong> <a href="">{{ book.author }}</a></p>
+                            <p><strong>{% trans "ISBN:" %}</strong> {{ book.isbn }}</p>
+                            <p><strong>{% trans "Language:" %}</strong> {{ book.language }}</p>
+                            <p><strong>{% trans "Genre:" %}</strong> {{ book.genre.all|join:", " }}</p>
+                            <p><strong>{% trans "Summary:" %}</strong> {{ book.summary }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ms-3 mt-3">
+        <h4>{% trans "Copies" %}</h4>
 
-  <p><strong>{% trans "Author:" %}</strong> <a href="">{{ book.author }}</a></p> <!-- author detail link not yet defined -->
-  <p><strong>{% trans "Summary:" %}</strong> {{ book.summary }}</p>
-  <p><strong>{% trans "ISBN:" %}</strong> {{ book.isbn }}</p>
-  <p><strong>{% trans "Language:" %}</strong> {{ book.language }}</p>
-  <p><strong>{% trans "Genre:" %}</strong> {{ book.genre.all|join:", " }}</p>
-
-  <div class="ms-3 mt-3">
-    <h4>{% trans "Copies" %}</h4>
-
-    {% for copy in instance_list %}
-      <hr>
-      <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'm' %}text-danger{% else %}text-warning{% endif %}">
-        {{ copy.get_status_display }}
-      </p>
-      {% if copy.status != 'a' %}
-        <p><strong>{% trans "Due to be returned:" %}</strong> {{ copy.due_back }}</p>
-      {% endif %}
-      <p><strong>{% trans "Imprint:" %}</strong> {{ copy.imprint }}</p>
-      <p class="text-muted"><strong>{% trans "Id:" %}</strong> {{ copy.id }}</p>
-    {% endfor %}
-  </div>
+        {% for copy in instance_list %}
+            <hr>
+            <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'm' %}text-danger{% else %}text-warning{% endif %}">
+                {{ copy.get_status_display }}
+            </p>
+            {% if copy.status != 'a' %}
+                <p><strong>{% trans "Due to be returned:" %}</strong> {{ copy.due_back }}</p>
+            {% endif %}
+            <p><strong>{% trans "Imprint:" %}</strong> {{ copy.imprint }}</p>
+            <p class="text-muted"><strong>{% trans "Id:" %}</strong> {{ copy.id }}</p>
+        {% endfor %}
+    </div>
 {% endblock %}
