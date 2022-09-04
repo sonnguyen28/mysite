@@ -13,7 +13,7 @@ import datetime
 from .models import Book, Author, BookInstance, Genre
 
 
-from catalog.forms import RenewBookForm
+from catalog.forms import RenewBookForm, BorrowBookForm
 def index(request):
     """View function for home page of site."""
 
@@ -177,3 +177,43 @@ class BookDelete(PermissionRequiredMixin, DeleteView):
     success_url = reverse_lazy('books')
     permission_required = 'catalog.can_mark_returned'
 
+@login_required
+def BookBorrow(request, pk):
+    book_instance = get_object_or_404(BookInstance, pk=pk)
+
+    if request.method == 'POST':
+        form = BorrowBookForm(request.POST)
+
+        if form.is_valid():
+
+            book_instance.borrow_day = datetime.date.today()
+            book_instance.due_back = form.cleaned_data['due_back']
+            book_instance.borrower = request.user
+            book_instance.status = 'o'
+
+            book_instance.save()
+
+            return HttpResponseRedirect(reverse('my-borrowed'))
+
+    else:
+        proposed_rent_date = datetime.date.today() + datetime.timedelta(weeks=3)
+        form = BorrowBookForm(initial={'due_back': proposed_rent_date})
+
+    context = {
+        'form': form,
+        'book_instance': book_instance,
+    }
+
+    return render(request, 'catalog/book_borrow.html', context)
+
+@login_required
+def BookReturn(request, pk):
+
+    book_instance = get_object_or_404(BookInstance, pk=pk)
+
+    book_instance.due_back = None
+    book_instance.borrower = None
+    book_instance.status = 'a'
+
+    book_instance.save()
+    return HttpResponseRedirect(reverse('my-borrowed'))

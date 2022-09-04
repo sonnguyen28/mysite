@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-23 13:26+0700\n"
+"POT-Creation-Date: 2022-09-05 07:31+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,16 +18,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: catalog/forms.py:9
+#: catalog/forms.py:10
 msgid "Enter a date between now and 4 weeks (default 3)."
 msgstr ""
 
-#: catalog/forms.py:15
+#: catalog/forms.py:16
 msgid "Invalid date - renewal in past"
 msgstr ""
 
-#: catalog/forms.py:18
+#: catalog/forms.py:19
 msgid "Invalid date - renewal more than 4 weeks ahead"
+msgstr ""
+
+#: catalog/forms.py:27
+msgid "Invalid date - borrow in past"
+msgstr ""
+
+#: catalog/forms.py:32
+msgid "Return date"
 msgstr ""
 
 #: catalog/models.py:10
@@ -58,55 +66,75 @@ msgstr ""
 msgid "My Local Library"
 msgstr ""
 
-#: catalog/templates/base_generic.html:19
-msgid "Home"
+#: catalog/templates/base_generic.html:49
+msgid "LOCAL LIBRARY"
 msgstr ""
 
-#: catalog/templates/base_generic.html:20
+#: catalog/templates/base_generic.html:68
 msgid "All books"
 msgstr ""
 
-#: catalog/templates/base_generic.html:21
+#: catalog/templates/base_generic.html:77
 msgid "All authors"
 msgstr ""
 
-#: catalog/templates/base_generic.html:23
-msgid "User:"
-msgstr ""
-
-#: catalog/templates/base_generic.html:24
-msgid "My Borrowed"
-msgstr ""
-
-#: catalog/templates/base_generic.html:25
-msgid "Logout"
-msgstr ""
-
-#: catalog/templates/base_generic.html:27
-msgid "Login"
-msgstr ""
-
-#: catalog/templates/base_generic.html:32
-msgid "Staff"
-msgstr ""
-
-#: catalog/templates/base_generic.html:34
+#: catalog/templates/base_generic.html:88
 msgid "All borrowed"
 msgstr ""
 
-#: catalog/templates/base_generic.html:47
+#: catalog/templates/base_generic.html:109
+msgid "Landing Pages"
+msgstr ""
+
+#: catalog/templates/base_generic.html:112
+msgid "My Borrowed"
+msgstr ""
+
+#: catalog/templates/base_generic.html:118
+msgid "Administration"
+msgstr ""
+
+#: catalog/templates/base_generic.html:122
+msgid "Add book"
+msgstr ""
+
+#: catalog/templates/base_generic.html:126
+msgid "Add author"
+msgstr ""
+
+#: catalog/templates/base_generic.html:132
+msgid "Account"
+msgstr ""
+
+#: catalog/templates/base_generic.html:136
+msgid "Logout"
+msgstr ""
+
+#: catalog/templates/base_generic.html:144
+msgid "Login"
+msgstr ""
+
+#: catalog/templates/base_generic.html:162
+msgid "SIMPLE LOCAL LIBRARY"
+msgstr ""
+
+#: catalog/templates/base_generic.html:163
+msgid "Welcome to Local Library"
+msgstr ""
+
+#: catalog/templates/base_generic.html:178
 msgid "previous"
 msgstr ""
 
-#: catalog/templates/base_generic.html:50
+#: catalog/templates/base_generic.html:181
 msgid "Page"
 msgstr ""
 
-#: catalog/templates/base_generic.html:50
+#: catalog/templates/base_generic.html:181
 msgid "of"
 msgstr ""
 
-#: catalog/templates/base_generic.html:53
+#: catalog/templates/base_generic.html:184
 msgid "next"
 msgstr ""
 
@@ -114,20 +142,23 @@ msgstr ""
 msgid "Delete Author"
 msgstr ""
 
-#: catalog/templates/catalog/author_confirm_delete.html:7
-msgid "Are you sure you want to delete the author:"
+#: catalog/templates/catalog/author_confirm_delete.html:8
+#: catalog/templates/catalog/book_confirm_delete.html:6
+msgid "Are you sure you want to delete "
 msgstr ""
 
-#: catalog/templates/catalog/author_confirm_delete.html:11
+#: catalog/templates/catalog/author_confirm_delete.html:14
+#: catalog/templates/catalog/book_confirm_delete.html:12
 msgid "Yes, delete."
 msgstr ""
 
-#: catalog/templates/catalog/author_detail.html:5
-#: catalog/templates/catalog/book_detail.html:6
-msgid "Author:"
+#: catalog/templates/catalog/author_confirm_delete.html:15
+#: catalog/templates/catalog/book_confirm_delete.html:13
+msgid "Cancel"
 msgstr ""
 
 #: catalog/templates/catalog/author_detail.html:9
+#: catalog/templates/index.html:12
 msgid "Books"
 msgstr ""
 
@@ -135,60 +166,77 @@ msgstr ""
 msgid "Book Summary"
 msgstr ""
 
-#: catalog/templates/catalog/author_list.html:5
-msgid "Author List"
+#: catalog/templates/catalog/author_list.html:20
+msgid "AUTHOR LIST"
 msgstr ""
 
-#: catalog/templates/catalog/author_list.html:20
+#: catalog/templates/catalog/author_list.html:51
 msgid "There are no authors available."
 msgstr ""
 
-#: catalog/templates/catalog/book_detail.html:4
-msgid "Title:"
+#: catalog/templates/catalog/book_borrow.html:5
+msgid "Borrow Book Page"
 msgstr ""
 
-#: catalog/templates/catalog/book_detail.html:7
-msgid "Summary:"
-msgstr ""
-
-#: catalog/templates/catalog/book_detail.html:8
-msgid "ISBN:"
-msgstr ""
-
-#: catalog/templates/catalog/book_detail.html:9
-msgid "Language:"
-msgstr ""
-
-#: catalog/templates/catalog/book_detail.html:10
-msgid "Genre:"
-msgstr ""
-
-#: catalog/templates/catalog/book_detail.html:13
-msgid "Copies"
+#: catalog/templates/catalog/book_confirm_delete.html:4
+msgid "Delete Book"
 msgstr ""
 
 #: catalog/templates/catalog/book_detail.html:21
-msgid "Due to be returned:"
+msgid "Author:"
+msgstr ""
+
+#: catalog/templates/catalog/book_detail.html:22
+msgid "ISBN:"
 msgstr ""
 
 #: catalog/templates/catalog/book_detail.html:23
-msgid "Imprint:"
+msgid "Language:"
 msgstr ""
 
 #: catalog/templates/catalog/book_detail.html:24
+msgid "Genre:"
+msgstr ""
+
+#: catalog/templates/catalog/book_detail.html:25
+msgid "Summary:"
+msgstr ""
+
+#: catalog/templates/catalog/book_detail.html:33
+#: catalog/templates/index.html:29
+msgid "Copies"
+msgstr ""
+
+#: catalog/templates/catalog/book_detail.html:41
+msgid "Due to be returned:"
+msgstr ""
+
+#: catalog/templates/catalog/book_detail.html:43
+msgid "Imprint:"
+msgstr ""
+
+#: catalog/templates/catalog/book_detail.html:44
 msgid "Id:"
 msgstr ""
 
-#: catalog/templates/catalog/book_list.html:5
-msgid "Book List"
+#: catalog/templates/catalog/book_detail.html:46
+msgid "Borrow"
 msgstr ""
 
-#: catalog/templates/catalog/book_list.html:15
+#: catalog/templates/catalog/book_detail.html:49
+msgid "Return"
+msgstr ""
+
+#: catalog/templates/catalog/book_list.html:5
+msgid "BOOK LIST"
+msgstr ""
+
+#: catalog/templates/catalog/book_list.html:83
 msgid "There are no books in the library."
 msgstr ""
 
 #: catalog/templates/catalog/book_renew_librarian.html:4
-msgid "Renew:"
+msgid "Renew: "
 msgstr ""
 
 #: catalog/templates/catalog/book_renew_librarian.html:5
@@ -216,48 +264,12 @@ msgstr ""
 msgid "Borrowed books"
 msgstr ""
 
-#: catalog/templates/index.html:4
-msgid "Local Library Home"
+#: catalog/templates/index.html:20
+msgid "Authors"
 msgstr ""
 
-#: catalog/templates/index.html:5
-msgid "Welcome to LocalLibrary, a website developed by"
-msgstr ""
-
-#: catalog/templates/index.html:5
-msgid "Mozilla Developer Network"
-msgstr ""
-
-#: catalog/templates/index.html:6
-msgid "Dynamic content"
-msgstr ""
-
-#: catalog/templates/index.html:7
-msgid "The library has the following record counts:"
-msgstr ""
-
-#: catalog/templates/index.html:9
-msgid "Books:"
-msgstr ""
-
-#: catalog/templates/index.html:10
-msgid "Copies:"
-msgstr ""
-
-#: catalog/templates/index.html:11
-msgid "Copies available:"
-msgstr ""
-
-#: catalog/templates/index.html:12
-msgid "Authors:"
-msgstr ""
-
-#: catalog/templates/index.html:15
-msgid "You have visited this page"
-msgstr ""
-
-#: catalog/templates/index.html:15
-msgid "time"
+#: catalog/templates/index.html:37
+msgid "Copies available"
 msgstr ""
 
 #: locallibrary/settings.py:117
@@ -276,15 +288,37 @@ msgstr ""
 msgid "Click here to login again."
 msgstr ""
 
-#: templates/registration/login.html:6
+#: templates/registration/login.html:8
 msgid "Your username and password didn't match. Please try again."
 msgstr ""
 
-#: templates/registration/login.html:14
-msgid "Please login to see this page."
+#: templates/registration/login.html:17
+msgid ""
+"Your account doesn't have access to this page. To proceed, please login with "
+"an account that has access."
 msgstr ""
 
-#: templates/registration/login.html:34
+#: templates/registration/login.html:23
+msgid "Please login."
+msgstr ""
+
+#: templates/registration/login.html:35
+msgid "Log in"
+msgstr ""
+
+#: templates/registration/login.html:58
+msgid "User name"
+msgstr ""
+
+#: templates/registration/login.html:62
+msgid "Password"
+msgstr ""
+
+#: templates/registration/login.html:68
+msgid "Sign in"
+msgstr ""
+
+#: templates/registration/login.html:73
 msgid "Lost password?"
 msgstr ""
 
@@ -318,7 +352,7 @@ msgid ""
 "used. Please request a new password reset."
 msgstr ""
 
-#: templates/registration/password_reset_done.html:4
+#: templates/registration/password_reset_done.html:5
 msgid ""
 "We've emailed you instructions for setting your password. If they haven't "
 "arrived in a few minutes, check your spam folder."
@@ -330,4 +364,8 @@ msgstr ""
 
 #: templates/registration/password_reset_email.html:2
 msgid ". Follow the link below:"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:10
+msgid "Reset Password"
 msgstr ""
