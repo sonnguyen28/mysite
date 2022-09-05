@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+{% load i18n %}
+
+{% block content %}
+    <h2 class="text-center">{% trans "Borrow Book Page" %}</h2>
+    <h5>{{ book_instance.book.title }}</h5>
+    <form class="content-body py-3" enctype="multipart/form-data" action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input class="my-3" type="submit" value="Submit">
+    </form>
+{% endblock %}

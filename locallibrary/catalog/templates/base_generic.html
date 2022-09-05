@@ -46,7 +46,7 @@
                     <a class="navbar-brand font-weight-bolder ms-sm-3"
                        href="{% url 'index' %}"
                        rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_self">
-                        LOCAL LIBRARY
+                        {% trans "LOCAL LIBRARY" %}
                     </a>
                     <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
@@ -106,7 +106,7 @@
                                          aria-labelledby="dropdownMenuPages8">
                                         <div class="d-none d-lg-block">
                                             <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                                                Landing Pages
+                                                {% trans "Landing Pages" %}
                                             </h6>
                                             <a href="{% url 'my-borrowed' %}" class="dropdown-item border-radius-md">
                                                 <span>{% trans "My Borrowed" %}</span>
@@ -115,9 +115,9 @@
                                             {% if user.is_staff %}
                                                 {% if perms.catalog.can_mark_returned %}
                                                     <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                                                        Administration
+                                                        {% trans "Administration" %}
                                                     </h6>
-                                                    <a href="{% url 'all-borrowed' %}"
+                                                    <a href="{% url 'book-create' %}"
                                                        class="dropdown-item border-radius-md">
                                                         <span>{% trans "Add book" %}</span>
                                                     </a>
@@ -129,7 +129,7 @@
                                             {% endif %}
 
                                             <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1 mt-3">
-                                                Account
+                                                {% trans "Account" %}
                                             </h6>
                                             <a href="{% url 'logout' %}?next={{ request.path }}"
                                                class="dropdown-item border-radius-md">
