@@ -35,3 +35,10 @@ class BorrowBookForm(ModelForm):
         model = BookInstance
         fields = ['due_back']
         labels = {'due_back': _('Return date')}
+
+
+class BookRequest(ModelForm):
+    class Meta:
+        model = BookInstance
+        fields = ['borrow']
+        labels = {'borrow': _('borrow status')}

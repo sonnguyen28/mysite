@@ -1,19 +1,37 @@
 {% extends "base_generic.html" %}
 {% load i18n %}
 {% block content %}
-    <h1>{% trans "All Borrowed Books" %}</h1>
-
+    <h1 class="text-center">{% trans "All Requests" %}</h1>
+    <div class="row text-center py-2 mt-3">
+        <div class="col-3 mx-auto">
+            <form action="{% url 'borrow-search' %}" method="get">
+                <div class="input-group input-group-dynamic mb-4">
+                    <span class="input-group-text"><i class="fas fa-search" aria-hidden="true"></i></span>
+                    <input name="borrow" class="form-control w-100" placeholder="Search" type="text">
+                </div>
+            </form>
+        </div>
+    </div>
     {% if bookinstance_list %}
-    <ul>
-
-      {% for bookinst in bookinstance_list %} 
-      <li class="{% if bookinst.is_overdue %}text-danger{% endif %}">
-        <a href="{% url 'book-detail' bookinst.book.pk %}">{{bookinst.book.title}}</a> ({{ bookinst.due_back }}) {% if user.is_staff %}- {{ bookinst.borrower }}{% endif %} {% if perms.catalog.can_mark_returned %}- <a href="{% url 'renew-book-librarian' bookinst.id %}">{% trans "Renew" %}</a>  {% endif %}
-      </li>
-      {% endfor %}
-    </ul>
+        <ul>
+            {% for bookinst in bookinstance_list %}
+                <li class="{% if bookinst.is_overdue %}text-danger{% endif %}">
+                    <a href="{% url 'book-detail' bookinst.book.pk %}">{{ bookinst.book.title }}</a> </br>
+                    <strong>{% trans "Due back" %} </strong>({{ bookinst.due_back }}) {% if user.is_staff %} </br>
+                    <a><strong> {% trans "Borrower : " %}</strong>{{ bookinst.borrower }}{% endif %} </a></br>
+                    <a> <strong>{% trans "Borrow status" %} </strong> {{ bookinst.get_borrow_display }} </a></br>
+                    {% if perms.catalog.can_mark_returned %}
+                        <a href="{% url 'renew-book-librarian' bookinst.id %}">{% trans "Renew" %}</a>  {% endif %}
+                    {% if perms.catalog.can_mark_returned %}
+                        {% if bookinst.borrow == 'w' %}
+                            <a href="{% url 'changes-borrow-status' bookinst.id %}">{% trans "Change status" %}</a>
+                        {% endif %}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
 
     {% else %}
-      <p>{% trans "There are no books borrowed." %}</p>
+        <p>{% trans "There are no books borrowed." %}</p>
     {% endif %}
 {% endblock %}

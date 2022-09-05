@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 from datetime import date
 import uuid
+
+
 class Genre(models.Model):
     name = models.CharField(
         max_length=200,
@@ -48,6 +50,7 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+
 class BookInstance(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4,
                           help_text=_("Unique ID for this particular book across whole library"))
@@ -67,6 +70,12 @@ class BookInstance(models.Model):
         ('r', 'Reserved'),
     )
 
+    BORROW_STATUS = (
+        ('w', 'waiting'),
+        ('d', 'denied'),
+        ('e', 'approved')
+    )
+
     status = models.CharField(
         max_length=1,
         choices=LOAN_STATUS,
@@ -74,12 +83,20 @@ class BookInstance(models.Model):
         default='d',
         help_text=_('Book availability'))
 
+    borrow = models.CharField(
+        max_length=1,
+        choices=BORROW_STATUS,
+        blank=True,
+        default='w',
+    )
+
     class Meta:
         ordering = ['due_back']
         permissions = (("can_mark_returned", "Set book as returned"),)
 
     def __str__(self):
         return '{0} ({1})'.format(self.id, self.book.title)
+
 
 class Author(models.Model):
     first_name = models.CharField(max_length=100)
@@ -94,4 +111,4 @@ class Author(models.Model):
         return reverse('author-detail', args=[str(self.id)])
 
     def __str__(self):
-        return '{0} {1}'.format(self.first_name, self.last_name )
+        return '{0} {1}'.format(self.first_name, self.last_name)

@@ -85,7 +85,7 @@
                                             <i class="fa-solid fa-user-tag"></i>
                                             <p class="d-inline text-sm z-index-1 font-weight-bold"
                                                data-bs-toggle="tooltip"
-                                               data-bs-placement="bottom">{% trans "All borrowed" %}</p>
+                                               data-bs-placement="bottom">{% trans "All requests" %}</p>
                                         </a>
                                     {% endif %}
                                 </li>
@@ -105,13 +105,16 @@
                                     <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-lg mt-0 mt-lg-3"
                                          aria-labelledby="dropdownMenuPages8">
                                         <div class="d-none d-lg-block">
-                                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                                                {% trans "Landing Pages" %}
-                                            </h6>
-                                            <a href="{% url 'my-borrowed' %}" class="dropdown-item border-radius-md">
-                                                <span>{% trans "My Borrowed" %}</span>
-                                            </a>
 
+                                            {% if user.is_staff != true %}
+                                                <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+                                                    {% trans "Landing Pages" %}
+                                                </h6>
+                                                <a href="{% url 'my-borrowed' %}"
+                                                   class="dropdown-item border-radius-md">
+                                                    <span>{% trans "My Borrowed" %}</span>
+                                                </a>
+                                            {% endif %}
                                             {% if user.is_staff %}
                                                 {% if perms.catalog.can_mark_returned %}
                                                     <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
