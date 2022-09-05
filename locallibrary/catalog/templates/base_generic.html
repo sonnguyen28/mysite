@@ -111,6 +111,23 @@
                                             <a href="{% url 'my-borrowed' %}" class="dropdown-item border-radius-md">
                                                 <span>{% trans "My Borrowed" %}</span>
                                             </a>
+
+                                            {% if user.is_staff %}
+                                                {% if perms.catalog.can_mark_returned %}
+                                                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+                                                        Administration
+                                                    </h6>
+                                                    <a href="{% url 'all-borrowed' %}"
+                                                       class="dropdown-item border-radius-md">
+                                                        <span>{% trans "Add book" %}</span>
+                                                    </a>
+                                                    <a href="{% url 'author-create' %}"
+                                                       class="dropdown-item border-radius-md">
+                                                        <span>{% trans "Add author" %}</span>
+                                                    </a>
+                                                {% endif %}
+                                            {% endif %}
+
                                             <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1 mt-3">
                                                 Account
                                             </h6>
@@ -150,7 +167,7 @@
     </div>
 </header>
 
-<div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n10">
+<div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n10 background-contain">
     <section class="pt-3 pb-4" id="count-stats">
         {% block content %}{% endblock %}
         {% block pagination %}
@@ -216,7 +233,6 @@
         </div>
     </div>
 </footer>
-
 
 </body>
 </html>

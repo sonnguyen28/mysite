@@ -2,8 +2,8 @@
 {% load i18n %}
 {% block content %}
 
-<h1>{% trans "Author:" %} {{ author }} </h1>
-<p>{{author.date_of_birth}} - {% if author.date_of_death %}{{author.date_of_death}}{% endif %}</p>
+<h1 class="text-center">{{ author }} </h1>
+<p class="text-center">{{author.date_of_birth}} - {% if author.date_of_death %}{{author.date_of_death}}{% endif %}</p>
 
 <div class="ms-3 mt-3">
 <h4>{% trans "Books" %} </h4>
