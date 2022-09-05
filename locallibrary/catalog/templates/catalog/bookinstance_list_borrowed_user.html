@@ -4,17 +4,24 @@
     <h1>{% trans "Borrowed books" %}</h1>
 
     {% if bookinstance_list %}
-    <ul>
+        <ul>
 
-      {% for bookinst in bookinstance_list %}
-      <li class="{% if bookinst.is_overdue %}text-danger{% endif %}">
-        <a href="{% url 'book-detail' bookinst.book.pk %}">{{bookinst.book.title}}</a> ({{ bookinst.due_back }})
-      </li>
-      {% endfor %}
-    </ul>
+            {% for bookinst in bookinstance_list %}
+                <li class="{% if bookinst.is_overdue %}text-danger{% endif %}">
+                    <strong><a>to</a></strong> ({{ bookinst.due_back }})<br>
+                    <a> <strong>{% trans "Borrow status" %} </strong> {{ bookinst.get_borrow_display }} </a></br>
+                    {% if bookinst.borrow == 'e' %}
+                        <a href="{% url 'book-return' bookinst.pk %}">{% trans "Return" %}</a>
+                    {% endif %}
+                    {% if bookinst.borrow != 'e' %}
+                        <a href="{% url 'book-return' bookinst.pk %}">{% trans "Cancel" %}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
 
     {% else %}
-      <p>{% trans "There are no books borrowed." %}</p>
+        <p>{% trans "There are no books borrowed." %}</p>
     {% endif %}
 {% endblock %}
 

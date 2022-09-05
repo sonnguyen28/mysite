@@ -9,7 +9,9 @@ urlpatterns = [
     path('author/<int:pk>', views.AuthorDetailView.as_view(), name='author-detail'),
     path('author/search/', views.AuthorSearch.as_view(), name='author-search'),
     path('mybooks/', views.LoanedBooksByUserListView.as_view(), name='my-borrowed'),
+
     path(r'borrowed/', views.LoanedBooksAllListView.as_view(), name='all-borrowed'),
+    path('borrow-search/', views.BookInstanceSearch.as_view(), name='borrow-search'),
 
     path('book/<uuid:pk>/renew/', views.renew_book_librarian, name='renew-book-librarian'),
 
@@ -23,4 +25,5 @@ urlpatterns = [
     path('book/search/', views.BookSearch.as_view(), name='book-search'),
     path('book/<uuid:pk>/borrow/', views.BookBorrow, name='book-borrow'),
     path('book/<uuid:pk>/return/', views.BookReturn, name='book-return'),
+    path('book/<uuid:pk>/request/', views.change_borrow_request, name='changes-borrow-status'),
 ]
